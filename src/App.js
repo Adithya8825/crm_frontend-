@@ -11,8 +11,9 @@ import AbsentCalendar from './components/AbsentCalendar';
 import LateCalendar from './components/LateCalendar';
 import ProjectsPage from './components/ProjectsPage';
 
-// ✅ Import your new AdminDashboard
+// ✅ Admin Panel Components
 import AdminDashboard from './components/admin/AdminDashboard';
+import AdminAttendance from './components/AdminAttendance'; // ✅ Import your Admin Attendance page
 
 function App() {
   return (
@@ -27,8 +28,9 @@ function App() {
         <Route path="/late-calendar" element={<LateCalendar />} />
         <Route path="/projects" element={<ProjectsPage />} />
 
-        {/* ✅ New route for master admin */}
+        {/* ✅ Admin-specific routes */}
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        <Route path="/admin/attendance" element={<AdminAttendance />} /> {/* ✅ Newly added */}
       </Routes>
     </Router>
   );
