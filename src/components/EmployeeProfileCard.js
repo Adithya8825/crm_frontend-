@@ -1,36 +1,21 @@
 // src/components/EmployeeProfileCard.js
-<<<<<<< HEAD
-import React, { useEffect, useState } from 'react';
-
-function EmployeeProfileCard() {
-  const [timer, setTimer] = useState(0);
-  const loginTime = new Date(); // replace with actual login time if available
-=======
 import React, { useEffect, useMemo, useState } from 'react';
 
 function EmployeeProfileCard() {
   const [timer, setTimer] = useState(0);
 
-  // ✅ Memoize loginTime to avoid re-creating on every render
+  // Memoize loginTime so it stays the same during the session
   const loginTime = useMemo(() => new Date(), []);
->>>>>>> f8462e0 (Initial commit from crm_frontend--main)
 
   useEffect(() => {
     const interval = setInterval(() => {
       setTimer(Math.floor((new Date() - loginTime) / 1000));
     }, 1000);
-<<<<<<< HEAD
-    return () => clearInterval(interval);
-  }, []);
 
-  // Helper: format seconds into hh:mm:ss
-=======
-
-    return () => clearInterval(interval); // ✅ Cleanup on unmount
+    return () => clearInterval(interval); // Clean up on unmount
   }, [loginTime]);
 
-  // ✅ Format time as hh:mm:ss
->>>>>>> f8462e0 (Initial commit from crm_frontend--main)
+  // Format seconds to hh:mm:ss
   const formatTime = (totalSeconds) => {
     const hours = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
     const minutes = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
