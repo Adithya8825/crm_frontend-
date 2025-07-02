@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-
-const TaskManager = () => (
-  <div className="bg-white p-6 shadow-md rounded-xl">
-    <h3 className="text-lg font-semibold mb-4">Task Assignment</h3>
-    <form className="space-y-4">
-      <input type="text" placeholder="Task Title" className="w-full border p-2 rounded" />
-      <textarea placeholder="Description" className="w-full border p-2 rounded"></textarea>
-      <input type="date" className="w-full border p-2 rounded" />
-      <button className="bg-blue-600 text-white px-4 py-2 rounded">Assign Task</button>
-    </form>
-  </div>
-);
-
-export default TaskManager;
-=======
 // src/components/TaskManager.jsx
 import React, { useState } from 'react';
 import axios from 'axios';
@@ -42,14 +25,14 @@ const TaskManager = () => {
 
     try {
       const res = await axios.post('http://localhost:8000/api/tasks/', taskData);
-      alert('Task Assigned Successfully');
-      // Reset
+      alert('✅ Task Assigned Successfully');
+      // Reset form
       setTitle('');
       setDescription('');
       setDeadline('');
       setEmail('');
     } catch (err) {
-      console.error('Assignment failed:', err);
+      console.error('❌ Assignment failed:', err);
       alert('Failed to assign task');
     }
   };
@@ -94,7 +77,7 @@ const TaskManager = () => {
         </div>
 
         <div>
-          <label className="block mb-1 text-gray-700 dark:text-gray-300">Deadline (dd-mm-yyyy)</label>
+          <label className="block mb-1 text-gray-700 dark:text-gray-300">Deadline</label>
           <input
             type="date"
             required
@@ -116,4 +99,3 @@ const TaskManager = () => {
 };
 
 export default TaskManager;
->>>>>>> f8462e0 (Initial commit from crm_frontend--main)
